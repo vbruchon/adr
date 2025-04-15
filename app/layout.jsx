@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
+import { ThemeProvider } from "@/src/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,12 +29,18 @@ export default function RootLayout({ children }) {
         )}
         cz-shortcut-listen="true"
       >
-        {/* <Header /> */}
-
-        <main className="min-h-full mx-auto max-w-4xl px-4 mt-4 lg:mt-6 flex flex-col gap-4">
-          {children}
-        </main>
-        {/* <Footer /> */}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* <Header /> */}
+          <main className="min-h-full mx-auto max-w-4xl px-4 mt-4 lg:mt-6 flex flex-col gap-4">
+            {children}
+          </main>
+          {/* <Footer /> */}
+        </ThemeProvider>
       </body>
     </html>
   );
