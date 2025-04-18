@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/drawer";
 import { Menu } from "lucide-react";
 import { X } from "lucide-react";
-import { Logo } from "./logo";
 import { NavigationLinks } from "./navigation-links";
-import { ToggleTheme } from "./theme/toggle-theme";
+import { ToggleTheme } from "../theme/toggle-theme";
+import { Logo } from "../logo";
 
 export const MobileMenu = () => {
   return (
@@ -38,7 +38,3 @@ export const MobileMenu = () => {
     </Drawer>
   );
 };
-
-{
-  /*  */
-}

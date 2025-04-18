@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { cn } from "../lib/utils";
 
-export const Logo = () => {
+export const Logo = ({ className }) => {
   return (
-    <div className="md:w-1/4 lg:w-auto flex items-center">
+    <div className={cn("flex items-center", className)}>
       <Link href={"/"}>
         <Image
           src={"/logo-auto-depannage-romanais.png"}

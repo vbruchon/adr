@@ -1,6 +1,6 @@
 "use client";
 
-import { ToggleTheme } from "./theme/toggle-theme";
+import { ToggleTheme } from "../theme/toggle-theme";
 import { NavigationLinks } from "./navigation-links";
 
 export const NavigationMenu = () => {
