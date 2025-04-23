@@ -1,8 +1,6 @@
-import React from "react";
-
 export const Presentation = () => {
   return (
-    <section className="max-w-4xl mx-auto py-16 px-4 text-center flex flex-col gap-6">
+    <section className="container mx-auto py-16 px-4 text-center flex flex-col gap-6">
       <h2 className="text-3xl font-semibold">Une expertise depuis 1978</h2>
 
       <p className="text-lg text-foreground leading-relaxed">
