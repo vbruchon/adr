@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <Header />
-          <main className="min-h-full mx-auto max-w-4xl px-4 mt-4 lg:mt-6 flex flex-col gap-4">
+          <main className="min-h-full mx-auto flex flex-col gap-4">
             {children}
           </main>
           <Footer />

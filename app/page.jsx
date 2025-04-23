@@ -1,7 +1,15 @@
+import { HeroSection } from "@/src/components/hero-section";
+import { PartnersBanner } from "@/src/components/partners-banner";
+import { Presentation } from "@/src/components/presentation-section";
+import { ServicesBanner } from "@/src/components/services-banner";
+
 export default function Home() {
   return (
-    <div className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-      <h1 className="font-bold text-4xl text-center text-primary">ADR</h1>
-    </div>
+    <>
+      <HeroSection />
+      <Presentation />
+      <ServicesBanner />
+      <PartnersBanner />
+    </>
   );
 }
