@@ -6,7 +6,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "@/src/components/ui/drawer";
 import { Menu } from "lucide-react";
 import { X } from "lucide-react";
 import { NavigationLinks } from "./navigation-links";

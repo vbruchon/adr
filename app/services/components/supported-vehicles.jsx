@@ -6,7 +6,7 @@ export const SupportedVehicles = () => {
     <div className="flex justify-center flex-wrap items-center mx-auto gap-8">
       {SUPPORTED_VEHICLES.map((vehicle) => (
         <div
-          key={vehicle.name}
+          key={vehicle.type}
           className="bg-card p-6 rounded-2xl shadow-lg flex flex-col items-center gap-2"
         >
           <Image

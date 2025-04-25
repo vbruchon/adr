@@ -4,8 +4,9 @@ import {
   DialogDescription,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/src/components/ui/dialog";
 import Image from "next/image";
+import { Map } from "./map";
 
 export const Location = () => {
   return (
@@ -27,12 +28,7 @@ export const Location = () => {
           <DialogDescription className="text-muted-foreground">
             220 allé du Vivarais 26300 Bourg-de-Pégage
           </DialogDescription>
-          <Image
-            width={950}
-            height={950}
-            src={"/auto-depannage-romanais-position.png"}
-            alt="postion auto depannage romanais"
-          />
+          <Map />
         </DialogContent>
       </Dialog>
       <p className="text-muted-foreground">

@@ -6,9 +6,9 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { PARTNERS } from "../data";
-import { Card, CardContent } from "@/components/ui/card";
+} from "@/src/components/ui/carousel";
+import { PARTNERS } from "../../src/data";
+import { Card, CardContent } from "@/src/components/ui/card";
 import Autoplay from "embla-carousel-autoplay";
 export const PartnersBanner = () => {
   return (
