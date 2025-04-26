@@ -6,7 +6,7 @@ import {
   DialogTrigger,
 } from "@/src/components/ui/dialog";
 import Image from "next/image";
-import { Map } from "./map";
+import Map from "./map";
 
 export const Location = () => {
   return (
