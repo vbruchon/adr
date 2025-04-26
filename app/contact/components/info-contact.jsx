@@ -15,10 +15,10 @@ export const InfoContact = () => {
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div className="h-full flex flex-col justify-between">
         <div>
-          <h2 className="text-xl font-semibold mb-4">Notre adresse</h2>
           <p className="mb-4">
             Pour toute demande d'information ou de devis, venez nous retrouver :
           </p>
+          <h2 className="text-xl font-semibold mb-4">Notre adresse</h2>
           <p className="font-medium mb-4">
             220, allée du Vivarais
             <br />
