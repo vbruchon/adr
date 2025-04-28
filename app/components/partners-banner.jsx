@@ -26,7 +26,10 @@ export const PartnersBanner = () => {
       >
         <CarouselContent>
           {PARTNERS.map((partner, index) => (
-            <CarouselItem key={index} className={"basis-1/7"}>
+            <CarouselItem
+              key={index}
+              className={"basis-1/3 md:basis-1/5 lg:basis-1/7"}
+            >
               <img
                 key={index}
                 src={`/partners/${partner}`}

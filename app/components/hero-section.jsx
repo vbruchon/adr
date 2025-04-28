@@ -7,9 +7,9 @@ export const HeroSection = () => {
         <img
           src="/hero.png"
           alt="Dépannage véhicule"
-          className="w-full h-full object-cover"
+          className="w-full h-[95vh] object-cover"
         />
-        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-0 h-[95vh] bg-background/80" />
       </div>
 
       <div className="relative z-10 max-w-4xl px-4 flex flex-col items-center gap-6 p-4">
