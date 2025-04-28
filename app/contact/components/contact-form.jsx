@@ -8,6 +8,7 @@ import { useState } from "react";
 import { InputField } from "./input-field";
 import { TextareaField } from "./textarea-field";
 import { SubmitButton } from "./submit-button";
+import { toast } from "sonner";
 
 export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,8 +25,27 @@ export const ContactForm = () => {
 
   const onSubmit = async (values) => {
     setIsLoading(true);
-    console.log(values);
-    setIsLoading(false);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        toast.success("Votre message a été envoyé avec succés");
+        form.reset();
+      } else {
+        toast.error("Une error s'est produite. Veuillez réessayer pus tard");
+      }
+    } catch (error) {
+      console.log("Erreur lors de l'envoi du formulaire", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

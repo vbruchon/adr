@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/src/components/theme/theme-provider";
 import { Header } from "@/src/components/header";
 import { cn } from "@/src/lib/utils";
 import { Footer } from "@/src/components/footer";
+import { Toaster } from "@/src/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
         >
           <Header />
           <main className="flex-1 mx-auto flex flex-col gap-4">{children}</main>
+          <Toaster />
           <Footer />
         </ThemeProvider>
       </body>
