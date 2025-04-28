@@ -14,7 +14,7 @@ export const ThemedIcon = ({ item }) => {
           width={64}
           height={64}
           src={theme === "dark" ? item.icon : item.iconDark}
-          alt={item.name}
+          alt={`Icône représentant un service de ${item.name}`}
           loading="lazy"
         />
       ) : (

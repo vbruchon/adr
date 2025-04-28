@@ -17,12 +17,12 @@ export const MobileMenu = () => {
   return (
     <Drawer direction="right">
       <DrawerTrigger>
-        <Menu size={32} />
+        <Menu size={32} aria-label="Open Menu" />
       </DrawerTrigger>
       <DrawerContent className="flex flex-col gap-6 animate-slide-in-right">
         <DrawerHeader>
           <DrawerClose className="flex items-center justify-end">
-            <X size={24} />
+            <X size={24} aria-label="Close" />
           </DrawerClose>
         </DrawerHeader>
         <DrawerTitle className="mx-auto">

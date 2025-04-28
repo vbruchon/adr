@@ -22,7 +22,12 @@ export const ToggleTheme = () => {
   };
 
   return (
-    <Button variant="outline" size="icon" onClick={handleTheme}>
+    <Button
+      variant="outline"
+      size="icon"
+      onClick={handleTheme}
+      aria-label={"Modifier le thème"}
+    >
       {theme === "dark" ? (
         <Moon className="absolute h-[1.2rem] w-[1.2rem]" />
       ) : (
