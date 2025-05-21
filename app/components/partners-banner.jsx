@@ -4,12 +4,10 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/src/components/ui/carousel";
 import { PARTNERS } from "../../src/data";
-import { Card, CardContent } from "@/src/components/ui/card";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 export const PartnersBanner = () => {
   return (
     <div className="py-16 px-4">
@@ -30,26 +28,18 @@ export const PartnersBanner = () => {
               key={index}
               className={"basis-1/3 md:basis-1/5 lg:basis-1/7"}
             >
-              <img
-                key={index}
+              <Image
                 src={`/partners/${partner}`}
                 alt={`Logo ${partner}`}
+                width={150}
+                height={50}
                 className="size-28"
+                loading="lazy"
               />
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
-      {/* <div className="flex gap-4 items-end justify-center max-w-4xl overflow-hidden">
-        {PARTNERS.map((partner, index) => (
-          <img
-            key={index}
-            src={`/partners/${partner}`}
-            alt={`Logo ${partner}`}
-            className="size-28"
-          />
-        ))}
-      </div> */}
     </div>
   );
 };

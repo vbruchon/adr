@@ -12,6 +12,7 @@ export const Logo = ({ className }) => {
           width={300}
           height={300}
           alt="auto depannage romanais logo"
+          priority
         />
       </Link>
     </div>
