@@ -9,14 +9,16 @@ export const ServicesList = () => {
           <div className="flex items-center mb-4">
             <Image
               src={service.iconDark}
-              alt={service.name}
+              alt=""
+              role="presentation"
               width={64}
               height={64}
               className="block dark:hidden"
             />
             <Image
               src={service.icon}
-              alt={service.name}
+              alt=""
+              role="presentation"
               width={64}
               height={64}
               className="hidden dark:block"

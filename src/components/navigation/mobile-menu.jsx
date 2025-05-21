@@ -16,13 +16,16 @@ import { Logo } from "../logo";
 export const MobileMenu = () => {
   return (
     <Drawer direction="right">
-      <DrawerTrigger>
-        <Menu size={32} aria-label="Open Menu" />
+      <DrawerTrigger aria-label="Ouvrir le menu">
+        <Menu size={32} />
       </DrawerTrigger>
       <DrawerContent className="flex flex-col gap-6 animate-slide-in-right">
         <DrawerHeader>
-          <DrawerClose className="flex items-center justify-end">
-            <X size={24} aria-label="Close" />
+          <DrawerClose
+            className="flex items-center justify-end"
+            aria-label="Fermer le menu"
+          >
+            <X size={24} />
           </DrawerClose>
         </DrawerHeader>
         <DrawerTitle className="mx-auto">
