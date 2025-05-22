@@ -4,14 +4,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { formSchema } from "@/schema/form-schema";
 import { Form } from "@/src/components/ui/form";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { InputField } from "./input-field";
 import { TextareaField } from "./textarea-field";
 import { SubmitButton } from "./submit-button";
+import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "sonner";
 
 export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const recaptchaRef = useRef < ReCAPTCHA > null;
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -27,22 +29,24 @@ export const ContactForm = () => {
     setIsLoading(true);
 
     try {
+      const token = await recaptchaRef.current.executeAsync();
+      recaptchaRef.current.reset();
+
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, token }),
       });
 
       if (response.ok) {
-        toast.success("Votre message a été envoyé avec succés");
+        toast.success("Votre message a été envoyé avec succès");
         form.reset();
       } else {
-        toast.error("Une error s'est produite. Veuillez réessayer pus tard");
+        toast.error("Une erreur s'est produite. Veuillez réessayer plus tard");
       }
-    } catch (error) {
-      console.log("Erreur lors de l'envoi du formulaire", error);
+    } catch (err) {
+      console.error("Erreur lors de l'envoi du formulaire", err);
+      toast.error("Une erreur inattendue est survenue");
     } finally {
       setIsLoading(false);
     }
@@ -65,11 +69,10 @@ export const ContactForm = () => {
             form={form}
           />
         </div>
-
         <InputField
           name="email"
           label="Email"
-          placeholder="votre-email@emai.fr"
+          placeholder="votre-email@exemple.fr"
           form={form}
         />
         <TextareaField
@@ -78,6 +81,13 @@ export const ContactForm = () => {
           placeholder="Veuillez saisir votre demande"
           form={form}
         />
+
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey={process.env.RECAPTCHA_SITE_KEY}
+          size="invisible"
+        />
+
         <SubmitButton isLoading={isLoading} />
       </form>
     </Form>

@@ -5,12 +5,30 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, phone, message } = body;
+    const { name, email, phone, message, token } = body;
 
-    if (!name || !email || !phone || !message) {
+    if (!name || !email || !phone || !message || !token) {
       return NextResponse.json(
         { message: "Données manquantes." },
         { status: 400 }
+      );
+    }
+
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY!;
+    const verifyRes = await fetch(
+      "https://www.google.com/recaptcha/api/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${secretKey}&response=${token}`,
+      }
+    );
+    const captchaData = await verifyRes.json();
+
+    if (!captchaData.success) {
+      return NextResponse.json(
+        { message: "Échec reCAPTCHA." },
+        { status: 403 }
       );
     }
 
