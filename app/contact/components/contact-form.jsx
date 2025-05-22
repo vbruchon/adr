@@ -13,7 +13,7 @@ import { toast } from "sonner";
 
 export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const recaptchaRef = useRef < ReCAPTCHA > null;
+  const recaptchaRef = useRef(null);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
