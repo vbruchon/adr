@@ -4,6 +4,12 @@ import { MapLoader } from "@/src/components/map-loader";
 import { Phone } from "lucide-react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  defaultTransition,
+  slideInLeft,
+  slideInRight,
+} from "@/src/lib/animation";
 
 const Map = dynamic(() => import("@/components/map"), {
   ssr: false,
@@ -13,7 +19,14 @@ const Map = dynamic(() => import("@/components/map"), {
 export const InfoContact = () => {
   return (
     <div className="grid md:grid-cols-2 gap-12 items-center">
-      <div className="h-full flex flex-col justify-between">
+      <motion.div
+        className="h-full flex flex-col justify-between"
+        variants={slideInLeft}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={defaultTransition}
+      >
         <div>
           <p className="mb-4">
             Pour toute demande d'information ou de devis, venez nous retrouver :
@@ -42,11 +55,17 @@ export const InfoContact = () => {
             Ou utilisez le formulaire ci-dessous :
           </p>
         </div>
-      </div>
-
-      <div className="rounded-2xl overflow-hidden shadow-lg">
+      </motion.div>
+      <motion.div
+        className="rounded-2xl overflow-hidden shadow-lg"
+        variants={slideInRight}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={defaultTransition}
+      >
         <Map />
-      </div>
+      </motion.div>
     </div>
   );
 };

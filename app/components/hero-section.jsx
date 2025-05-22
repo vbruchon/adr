@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { defaultTransition, fadeInUp } from "@/src/lib/animation.js";
 
 export const HeroSection = () => {
   return (
@@ -12,10 +16,16 @@ export const HeroSection = () => {
           objectFit="cover"
           priority
         />
-        <div className="absolute inset-0 h-[95vh] bg-background/80" />
+        <div className="absolute inset-0 h-[95vh] bg-card-foreground/70" />
       </div>
 
-      <div className="relative z-10 max-w-4xl px-4 flex flex-col items-center gap-6 p-4">
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        animate="visible"
+        transition={defaultTransition}
+        className="relative z-10 max-w-4xl px-4 flex flex-col items-center gap-6 p-4"
+      >
         <h1 className="text-4xl sm:text-5xl font-bold">
           Auto Dépannage Romanais
         </h1>
@@ -30,7 +40,7 @@ export const HeroSection = () => {
             Nous contacter
           </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -8,12 +8,22 @@ import {
 import { PARTNERS } from "../../src/data";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { defaultTransition, fadeInUp } from "@/src/lib/animation.js";
+
 export const PartnersBanner = () => {
   return (
     <div className="py-16 px-4">
-      <h2 className="text-3xl font-semibold text-center mb-8">
+      <motion.h2
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        transition={defaultTransition}
+        viewport={{ once: true, amount: 0.4 }}
+        className="text-3xl font-semibold text-center mb-8"
+      >
         Nos Partenaires
-      </h2>
+      </motion.h2>
       <Carousel
         className="max-w-4xl mx-auto"
         plugins={[

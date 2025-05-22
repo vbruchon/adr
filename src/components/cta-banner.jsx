@@ -1,8 +1,23 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { defaultTransition } from "../lib/animation.js";
+
+const containerVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1 },
+};
 
 export const CTABanner = ({ hook, description = null, href, children }) => {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <motion.div
+      className="container mx-auto px-4 py-12"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      transition={defaultTransition}
+      viewport={{ once: true, amount: 0.3 }}
+    >
       <div className="bg-primary text-white rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
         <div className="text-center md:text-left">
           <h4 className="text-xl md:text-2xl font-semibold">{hook}</h4>
@@ -17,6 +32,6 @@ export const CTABanner = ({ hook, description = null, href, children }) => {
           {children}
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
