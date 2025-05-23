@@ -23,12 +23,6 @@ const item = {
 };
 
 export const ServicesBanner = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section className="lg:py-12 xl:py-24 px-4">
       <motion.h2
@@ -55,11 +49,7 @@ export const ServicesBanner = () => {
               href={"/services"}
               className="bg-card flex flex-col items-center gap-2 p-4 border rounded-xl w-56 lg:w-40 hover:bg-card-foreground transition"
             >
-              {mounted ? (
-                <ThemedIcon item={service} className="w-10 h-10" />
-              ) : (
-                <Loader className="w-10 h-10 animate-spin" aria-hidden="true" />
-              )}
+              <ThemedIcon item={service} className="w-10 h-10" />
 
               <p>{service.name}</p>
             </Link>
